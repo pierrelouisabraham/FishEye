@@ -1,16 +1,34 @@
 function photographerFactory(data) {
-    const { name, portrait } = data;
+    const { name, portrait, city, country, price, tagline } = data;
 
     const picture = `assets/Sample Photos/Photographers ID Photos/${portrait}`;
 
     function getUserCardDOM() {
+        var a=document.createElement('a');
+        a.href='http://www.google.com';
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
+        img.setAttribute("src", picture);
+        img.setAttribute("alt", name);
+        img.setAttribute("class", "photo");
+        /* document.getElementById('photo').appendChild(a); */
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
-        article.appendChild(img);
-        article.appendChild(h2);
+        const pville = document.createElement('p');
+        pville.textContent = city+", "+country;
+        pville.setAttribute('class', "country")
+        const tag = document.createElement('p');
+        tag.textContent = tagline;
+        tag.setAttribute("class", "tagline");
+        const pricePhoto = document.createElement('p');
+        pricePhoto.textContent = price+"€/jour";
+        pricePhoto.setAttribute("class", "price");
+        article.appendChild(a);
+        a.appendChild(img);
+        a.appendChild(h2);
+        article.appendChild(pville);
+        article.appendChild(tag);
+        article.appendChild(pricePhoto);
         return (article);
     }
     return { name, picture, getUserCardDOM }
