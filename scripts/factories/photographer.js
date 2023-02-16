@@ -1,17 +1,16 @@
 function photographerFactory(data) {
-    const { name, portrait, city, country, price, tagline } = data;
+    const { id, name, portrait, city, country, price, tagline } = data;
 
     const picture = `assets/Sample Photos/Photographers ID Photos/${portrait}`;
 
     function getUserCardDOM() {
         var a=document.createElement('a');
-        a.href='http://www.google.com';
+        a.href='./photographer.html?id='+id;
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
         img.setAttribute("alt", name);
         img.setAttribute("class", "photo");
-        /* document.getElementById('photo').appendChild(a); */
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
         const pville = document.createElement('p');
@@ -33,3 +32,4 @@ function photographerFactory(data) {
     }
     return { name, picture, getUserCardDOM }
 }
+
