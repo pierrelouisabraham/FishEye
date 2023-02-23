@@ -1,14 +1,3 @@
-    async function getPhotographers() {
-        var photographers;
-        var data;
-        data = await postData('https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Front-End-Fisheye/main/data/photographers.json');
-        
-        photographers = data["photographers"];
-        // et bien retourner le tableau photographers seulement une fois récupéré
-        return ({
-            photographers: [...photographers]})
-    }
-
 
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
@@ -28,3 +17,4 @@
     
     init();
     
+//redimensionner les images portrait

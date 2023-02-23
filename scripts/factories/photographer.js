@@ -4,8 +4,9 @@ function photographerFactory(data) {
     const picture = `assets/Sample Photos/Photographers ID Photos/${portrait}`;
 
     function getUserCardDOM() {
-        var a=document.createElement('a');
+        const a=document.createElement('a');
         a.href='./photographer.html?id='+id;
+        a.setAttribute("aria-label", name);
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
