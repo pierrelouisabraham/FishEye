@@ -6,6 +6,8 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .contact_button {
@@ -60,13 +62,34 @@ form label {
     font-size: 36px;
 }
 
-form div {
+form div  {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: self-start;
     margin-bottom: 26px;
 }
+
+form div[data-error][data-error-visible="true"]::after {
+    content: attr(data-error);
+    font-size: 10px;
+    color: black;
+    display: block;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    text-align: left;
+    line-height: 0.3;
+    opacity: 1;
+    transition: 0.3s;
+  }
+
+  form div[data-error][data-error-visible="false"]::after {
+    opacity: 0;
+  }
+
+  form input[data-error-visible="true"] {
+    border: 2px solid #e54858;
+  }
 
 form input {
     width: 100%;

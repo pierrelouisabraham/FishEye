@@ -22,7 +22,7 @@
           <h2>Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
+				<form method="post">
           <div class="formData" data-error="Veuillez entrer au minimum deux caractères" data-error-visible="false">
             <label for="first">Prénom</label>
             <input class="text-control" type="text" id="first" name="first" data-error-visible="false" />
@@ -34,6 +34,8 @@
           <div class="formData" data-error="Votre mail n'est pas conforme." data-error-visible="false">
             <label for="email">E-mail</label>
             <input class="text-control" type="text" id="email" name="email" data-error-visible="false" />
+            </div>
+            <div>
             <label>Votre message</label>
 						<input class="text-control" type="text" id="message" name="message" data-error-visible="false"/>
 					</div>
@@ -42,8 +44,8 @@
 			</div>
 		</div>
     <script src="/scripts/utils/utils.js"></script>
-    <script src="/scripts/pages/photographer.js"></script>
+    <script src="/scripts/factories/media.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
-    
+    <script src="/scripts/pages/photographer.js"></script>
   </body>
 </html>
