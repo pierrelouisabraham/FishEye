@@ -52,9 +52,11 @@ function openModalLightbox(imageUrl) {
     const currentIndex = photographer["medias"].indexOf(imageUrl);
     const imgLight = document.getElementById('img_lightbox');
     imgLight.setAttribute("src", imageUrl);
-    
+
 }
 
 function closeModalLightbox() {
     document.querySelector("#lightbox_modal").style.display = "none";
 }
+
+/* document.querySelectorAll(".photo").add */

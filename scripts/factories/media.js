@@ -35,12 +35,15 @@ function mediaFactory(data){
         pSort.textContent = "Trier par";
         const navSort = document.createElement("nav");
         const ulSort = document.createElement("ul");
-        const liSortPop = document.createElement("li")
+        const liSortPop = document.createElement("li");
+        liSortPop.setAttribute("onclick", "sortBy(pop)");
         liSortPop.textContent = "Popularité";
         const liSortDate = document.createElement("li");
         liSortDate.textContent = "Date";
+        liSortPop.setAttribute("onclick", "sortBy(date)")
         const liSortTitle = document.createElement("li");
         liSortTitle.textContent = "Titre";
+        liSortTitle.setAttribute("onclick", "sortBy(title)");
         article.appendChild(pSort);
         article.appendChild(navSort);
         navSort.appendChild(ulSort);
@@ -75,9 +78,8 @@ function mediaFactory(data){
             img.setAttribute("src", images);
             img.setAttribute("alt", title);
             img.setAttribute("class", "photo");
-            img.setAttribute('onclick', 'openModalLightbox('+images+')')
             article.appendChild(img);
-            
+
         }
         const divUnderPhoto = document.createElement('div');
         divUnderPhoto.setAttribute('class', 'under_photo');
@@ -96,28 +98,6 @@ function mediaFactory(data){
 
         return article;
     }
-
-    function lightBox(imageUrl) {
-        console.log(imageUrl)
-        const divLightBox = document.createElement('div');
-        divLightBox.setAttribute('class', 'lightbox');
-        const buttonClose = document.createElement('button');
-        buttonClose.setAttribute('class', 'lightbox__close');
-        divLightBox.appendChild(buttonClose);
-        const buttonNext = document.createElement('button');
-        buttonNext.setAttribute('class', 'lightbox__next');
-        divLightBox.appendChild(buttonNext);
-        const buttonPrev = document.createElement('button');
-        buttonPrev.setAttribute('class', 'lightbox__prev');
-        divLightBox.appendChild(buttonPrev);
-        const lightBoxContainer = document.createElement("div")
-        lightBoxContainer.setAttribute('class', 'lightbox__container')
-        divLightBox.appendChild(lightBoxContainer);
-        const imageLightbox = document.createElement('img');
-        imageLightbox.setAttribute('src', imageUrl)
-        
-    }
-
 
     return {getPhotographSection, sortImageNav, getBookdom}
 }

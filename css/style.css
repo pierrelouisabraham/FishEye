@@ -130,3 +130,7 @@ video {
 #sort_article {
     margin: 0 100px;
 }
+
+nav ul {
+    list-style-type: none;
+}
