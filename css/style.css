@@ -82,7 +82,7 @@ h2 {
     text-decoration: none;
 }
 
-.photographer_section article a h2 {
+.photographer_section article  h2 {
     color: #D3573C;
     font-size: 36px;
 }
@@ -92,4 +92,41 @@ h2 {
     width: 200px;
     overflow: hidden;
     border-radius: 50%;
+}
+
+.photo {
+    Width : 350px;
+    Height : 300px;
+}
+
+video {
+    Width : 350px;
+    Height : 300px;
+}
+
+.fa-solid {
+    color: #901C1C;
+    font-size: 16px;
+}
+
+.under_photo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.mosaique {
+    width: 33%;
+}
+
+.flexible {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: 0 100px;
+}
+
+#sort_article {
+    margin: 0 100px;
 }

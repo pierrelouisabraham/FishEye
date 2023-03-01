@@ -7,7 +7,34 @@
     height: 300px;
     margin: 0 100px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+
+.photograph-header h2 {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 83px;
+    color: #D3573C;
+}
+
+.country {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 31px;  
+    color: #901C1C;
+}
+
+.tagline {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #525252;
 }
 
 .contact_button {
@@ -21,6 +48,18 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    align-self: center;
+}
+
+#name_card {
+    align-self: center;
+}
+
+.photograph-header img {
+    border-radius: 50%;
+    width: 20%;
+    height: 60%;
+    align-self: center;
 }
 
 .modal {

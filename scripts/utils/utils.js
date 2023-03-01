@@ -22,3 +22,33 @@ async function getMedia() {
    console.log(media);
    return({media: [...media]})
 }
+
+function insertAfter(referenceNode, newNode) {
+   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+function isKeyExists(obj,key){
+   if( obj[key] == undefined ){
+       return false;
+   }else{
+       return true;
+   }
+}
+
+function sortArrayPopularity(data){
+   data["likes"].sort((a,b)=>a-b);
+   console.log(data)
+   return data;
+}
+
+function sortArrayDate(data){
+   
+   return data;
+}
+
+function sortArrayTitle(data){
+   let title='Title';
+   data.sort((a, b) => (a[title] || "").toString().localeCompare((b[title] || "").toString().localeCompare((b[field] || "").toString())));
+   console.log(data)
+   return data;
+}
