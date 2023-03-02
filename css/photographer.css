@@ -72,6 +72,9 @@
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    top: 50%;
+    left: 20%;
+    position: absolute;
 }
 
 .modal header {

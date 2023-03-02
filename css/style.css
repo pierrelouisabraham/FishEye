@@ -112,8 +112,9 @@ video {
 .under_photo {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
+    width: 350px;
 }
 
 .mosaique {

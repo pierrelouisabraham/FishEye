@@ -54,7 +54,6 @@ function mediaFactory(data){
     }
 
     function getBookdom(namePhoto) {
-        console.log(data);
         
         const images = `assets/Sample Photos/${namePhoto}/${image}`;
         const videos = `assets/Sample Photos/${namePhoto}/${video}`;
@@ -88,13 +87,16 @@ function mediaFactory(data){
         pville.textContent = title;
         pville.setAttribute('class', "country");
         divUnderPhoto.appendChild(pville)
+        const divLike = document.createElement("div");
+        divLike.setAttribute("class", "div_like")
+        divUnderPhoto.appendChild(divLike)
         const like = document.createElement("span")
         like.setAttribute("class", "like");
         like.textContent = likes;
-        divUnderPhoto.appendChild(like);
+        divLike.appendChild(like);
         const heart = document.createElement('span');
         heart.setAttribute('class','fa-solid fa-heart')
-        divUnderPhoto.appendChild(heart)
+        divLike.appendChild(heart)
 
         return article;
     }
