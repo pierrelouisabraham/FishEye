@@ -31,9 +31,8 @@
 }
 
 .lightbox__container {
-    width: 90%;
+    width: 50%;
     margin: auto;
-    max-width: 1200px;
     position: fixed;
     top: 50%;
     left: 50%;

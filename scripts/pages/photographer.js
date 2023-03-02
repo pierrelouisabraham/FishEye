@@ -87,7 +87,7 @@ async function getPhotographer(id) {
 
 function openModalLightbox(imageUrl) {
     document.querySelector("#lightbox_modal").style.display = "block";
-    const currentIndex = photographer["medias"].indexOf(imageUrl);
+    const currentIndex = currentMedias.indexOf(imageUrl);
     const imgLight = document.getElementById('img_lightbox');
     imgLight.setAttribute("src", imageUrl);
 
