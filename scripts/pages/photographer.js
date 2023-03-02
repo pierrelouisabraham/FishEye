@@ -36,6 +36,42 @@ async function displayDataPhoto(photographer) {
         const bookDom = bookmodel.getBookdom(photographer.name);
         div.appendChild(bookDom);
     });
+
+    const selector = document.querySelector("#p_sort"); 
+    const domToRemove = document.querySelector(".mosaique")
+
+selector.addEventListener("change", (event) => {
+    if(selector.value == "Popularité")
+    {
+            currentMedias =  sortArrayPopularity(currentMedias);
+            removeAllChildNodes(div)
+            currentMedias.forEach((currentMedia) => {
+                const bookmodel = mediaFactory(currentMedia);
+                const bookDom = bookmodel.getBookdom(photographer.name);
+                div.appendChild(bookDom);
+            });
+    }
+    if(selector.value == "Date")
+    {
+            currentMedias =  sortArrayDate(currentMedias);
+            removeAllChildNodes(div)
+            currentMedias.forEach((currentMedia) => {
+                const bookmodel = mediaFactory(currentMedia);
+                const bookDom = bookmodel.getBookdom(photographer.name);
+                div.appendChild(bookDom);
+            });
+    }
+    if(selector.value == "Titre")
+    {
+            currentMedias =  sortArrayTitle(currentMedias);
+            removeAllChildNodes(div)
+            currentMedias.forEach((currentMedia) => {
+                const bookmodel = mediaFactory(currentMedia);
+                const bookDom = bookmodel.getBookdom(photographer.name);
+                div.appendChild(bookDom);
+            });
+    }
+  });
     
 }
 
@@ -61,9 +97,10 @@ function closeModalLightbox() {
     document.querySelector("#lightbox_modal").style.display = "none";
 }
 
-/* function getAllUrlImg() {
-    currentMedias
-} */
+
+
+
+
 
 
 

@@ -30,26 +30,25 @@ function mediaFactory(data){
     function sortImageNav() {
         const article = document.createElement('article');
         article.setAttribute("id", "sort_article");
-        const pSort = document.createElement('p');
+        const texte = document.createElement('p');
+        texte.setAttribute('id', 'text_sort');
+        texte.textContent = "Trié par";
+        const pSort = document.createElement('select');
         pSort.setAttribute("id", "p_sort");
-        pSort.textContent = "Trier par";
-        const navSort = document.createElement("nav");
-        const ulSort = document.createElement("ul");
-        const liSortPop = document.createElement("li");
-        liSortPop.setAttribute("onclick", "sortBy(pop)");
-        liSortPop.textContent = "Popularité";
-        const liSortDate = document.createElement("li");
-        liSortDate.textContent = "Date";
-        liSortPop.setAttribute("onclick", "sortBy(date)")
-        const liSortTitle = document.createElement("li");
-        liSortTitle.textContent = "Titre";
-        liSortTitle.setAttribute("onclick", "sortBy(title)");
+        const optionPop = document.createElement("option");
+        optionPop.setAttribute("value", "Popularité");
+        optionPop.textContent = "Popularité";
+        const optionDate = document.createElement("option");
+        optionDate.setAttribute("value", "Date");
+        optionDate.textContent = "Date";
+        const optionTitle = document.createElement("option");
+        optionTitle.setAttribute("value", "Titre");
+        optionTitle.textContent = "Titre";
+        article.appendChild(texte)
         article.appendChild(pSort);
-        article.appendChild(navSort);
-        navSort.appendChild(ulSort);
-        ulSort.appendChild(liSortPop);
-        ulSort.appendChild(liSortDate);
-        ulSort.appendChild(liSortTitle);
+        pSort.appendChild(optionPop);
+        pSort.appendChild(optionDate);
+        pSort.appendChild(optionTitle);
 
         return article;
     }

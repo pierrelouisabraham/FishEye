@@ -131,6 +131,47 @@ video {
     margin: 0 100px;
 }
 
-nav ul {
-    list-style-type: none;
+select {
+    background: #911C1C;
+    border-radius: 5px;
+    color: white;
+    Width : 170px;
+    Height : 69px;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  .select-wrapper input.active, .select-dropdown:focus{
+    border-bottom: 1px solid white !important;
+   }
+
+option {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    color: white;
+    border-bottom: 3px solid #f8a100;
+  }
+
+#text_sort {
+    width: 74px;
+    height: 23px;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 23px;
+    color: #000000;
+  }
+
+#sort_article {
+    display: flex;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }

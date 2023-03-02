@@ -59,3 +59,7 @@ function sortArrayTitle(data){
    console.log(sortedList)
    return sortedList;
 }
+
+function removeAllChildNodes(parent) {
+   parent.innerHTML = '';
+}
