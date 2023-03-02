@@ -78,6 +78,7 @@ function mediaFactory(data){
             img.setAttribute("src", images);
             img.setAttribute("alt", title);
             img.setAttribute("class", "photo");
+            img.setAttribute("onclick", 'loadImage('+images+')');
             article.appendChild(img);
 
         }

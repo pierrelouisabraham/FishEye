@@ -1,4 +1,5 @@
 //Mettre le code JavaScript lié à la page photographer.html
+var currentMedias = [];
 
 
 async function init() {
@@ -12,7 +13,6 @@ async function init() {
 init();
 
 async function displayDataPhoto(photographer) {
-    console.log(photographer)
     const photographerSection = document.querySelector(".photograph-header");
     const button = document.querySelector(".contact_button");
     const main = document.querySelector("main")
@@ -22,13 +22,17 @@ async function displayDataPhoto(photographer) {
     photographerSection.insertBefore(cardModel, button);
     const sortModel = contactPhotographer.sortImageNav();
     main.appendChild(sortModel);
-    var medias = photographer["medias"];
+
+    currentMedias = photographer["medias"];
     const divFlex = document.createElement('div');
     divFlex.setAttribute('class', "flexible")
     main.appendChild(divFlex);
+
+    currentMedias =  sortArrayPopularity(currentMedias);
+
     const div = document.querySelector(".flexible")
-    medias.forEach((media) => {
-        const bookmodel = mediaFactory(media);
+    currentMedias.forEach((currentMedia) => {
+        const bookmodel = mediaFactory(currentMedia);
         const bookDom = bookmodel.getBookdom(photographer.name);
         div.appendChild(bookDom);
     });
@@ -42,8 +46,6 @@ async function getPhotographer(id) {
     const photographer = photographers.find(photographer => photographer.id == id)
     photographer["medias"] = [];
     photographer["medias"] = medias.filter(media => media["photographerId"] == id)
-    
-    
     return photographer;
 }
 
@@ -59,4 +61,48 @@ function closeModalLightbox() {
     document.querySelector("#lightbox_modal").style.display = "none";
 }
 
-/* document.querySelectorAll(".photo").add */
+/* function getAllUrlImg() {
+    currentMedias
+} */
+
+
+
+  function loadImage (url) {
+    this.url = null
+    const image = new Image()
+    const container = this.element.querySelector('.lightbox__container')
+    const loader = document.createElement('div')
+    loader.classList.add('lightbox__loader')
+    container.innerHTML = ''
+    container.appendChild(loader)
+    image.onload = () => {
+      container.removeChild(loader)
+      container.appendChild(image)
+      this.url = url
+    }
+    image.src = url
+  }
+
+    /**
+   * @param {MouseEvent|KeyboardEvent} e 
+   */
+    function next (e) {
+        e.preventDefault()
+        let i = currentMedias.findIndex(image => image === this.url)
+        if (i === currentMedias.length - 1) {
+          i = -1
+        }
+        this.loadImage(currentMedias[i + 1])
+      }
+    
+      /**
+       * @param {MouseEvent|KeyboardEvent} e 
+       */
+      function prev (e) {
+        e.preventDefault()
+        let i = currentMedias.findIndex(image => image === this.url)
+        if (i === 0) {
+          i = currentMedias.length
+        }
+        this.loadImage(currentMedias[i - 1])
+      }

@@ -15,14 +15,25 @@
     cursor: pointer;
 }
 
-.next_lightbox {
+.lightbox__next {
     background: url(../assets/icons/chevron-right-solid.svg);
+    color: #901C1C;
 }
 
-.prev_lightbox {
+.lightbox__prev {
     background: url(../assets/icons/chevron-left-solid.svg);
+    color: #901C1C;
 }
 
-.close_lightbox {
+.lightbox__close {
     background: url(../assets/icons/close.svg);
+    color: #901C1C;
 }
+
+.lightbox__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0 50px;
+  }
