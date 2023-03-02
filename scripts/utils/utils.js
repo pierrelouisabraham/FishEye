@@ -36,19 +36,26 @@ function isKeyExists(obj,key){
 }
 
 function sortArrayPopularity(data){
-   data["likes"].sort((a,b)=>a-b);
+   data.sort((a,b)=>a.likes-b.likes);
    console.log(data)
    return data;
 }
 
-function sortArrayDate(data){
-   
-   return data;
-}
+
+   function sortArrayDate(data){  
+      data = data.sort(function (a, b) {
+         var dateA = new Date(a.date).getTime();
+         var dateB = new Date(b.date).getTime();
+         return dateA > dateB ? 1 : -1;
+       });
+
+       return data;
+  }
 
 function sortArrayTitle(data){
    let title='Title';
-   data.sort((a, b) => (a[title] || "").toString().localeCompare((b[title] || "").toString().localeCompare((b[field] || "").toString())));
-   console.log(data)
-   return data;
+   const sortedList = data.sort((a, b) =>
+    a.title.localeCompare(b.title));
+   console.log(sortedList)
+   return sortedList;
 }
