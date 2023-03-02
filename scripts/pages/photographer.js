@@ -104,7 +104,7 @@ function closeModalLightbox() {
 
 
 
-  function loadImage (url) {
+function loadImage(url) {
     this.url = null
     const image = new Image()
     const container = this.element.querySelector('.lightbox__container')
@@ -118,7 +118,7 @@ function closeModalLightbox() {
       this.url = url
     }
     image.src = url
-  }
+}
 
     /**
    * @param {MouseEvent|KeyboardEvent} e 

@@ -31,9 +31,15 @@
 }
 
 .lightbox__container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0 50px;
+    width: 90%;
+    margin: auto;
+    max-width: 1200px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .lightbox__container img {
+    width: 100%;
   }
