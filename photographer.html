@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/lightbox.css" rel="stylesheet" type="text/css" />
@@ -12,13 +12,13 @@
   </head>
   <body>
     <header>
-      <a href="index.html">
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html" role="Image link">
+      <img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page"/>
       </a>
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" role="buttons" onclick="displayModal()">Contactez-moi</button>
       </div>
     </main>
     <div id="contact_modal">
@@ -48,10 +48,7 @@
 				</form>
 			</div>
 		</div>
-    <div id="lightbox_modal">
-      
-      
-      
+    <div id="lightbox_modal" role="Dialog" aria-label="image closeup view">
       <div class="lightbox__container">
         <button class="prev_lightbox" onclick="previousImage()"></button>
         <div class="mediabox">

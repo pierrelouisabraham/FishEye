@@ -8,11 +8,13 @@ function mediaFactory(data){
 
         const article = document.createElement('article');
         article.setAttribute("id", "name_card");
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = name;
+        const h1 = document.createElement( 'h1' );
+        h1.textContent = name;
+        h1.setAttribute("role","Header (h1)")
         const pville = document.createElement('p');
         pville.textContent = city+", "+country;
         pville.setAttribute('class', "country");
+        pville.setAttribute("role", "texte statique");
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
         img.setAttribute("alt", name);
@@ -20,7 +22,7 @@ function mediaFactory(data){
         const tag = document.createElement('p');
         tag.textContent = tagline;
         tag.setAttribute("class", "tagline");
-        article.appendChild(h2);
+        article.appendChild(h1);
         article.appendChild(pville);
         article.appendChild(tag);
         insertAfter(document.querySelector(".contact_button"), img);
@@ -33,6 +35,7 @@ function mediaFactory(data){
         const texte = document.createElement('p');
         texte.setAttribute('id', 'text_sort');
         texte.textContent = "Trié par";
+        texte.setAttribute("role", "input label");
         const pSort = document.createElement('select');
         pSort.setAttribute("id", "p_sort");
         const optionPop = document.createElement("option");
@@ -71,6 +74,7 @@ function mediaFactory(data){
             src.setAttribute("type", "video/mp4");
             vid.appendChild(src);
             vid.style.cursor = "pointer";
+            vid.setAttribute("role", "Video link");
         }
         else {
             const img = document.createElement('img');
@@ -80,12 +84,14 @@ function mediaFactory(data){
             img.setAttribute("onclick", `openModalLightbox('${images}','${id}','${title}')`);
             article.appendChild(img);
             img.style.cursor = "pointer";
+            img.setAttribute("role", "Image link");
         }
         const divUnderPhoto = document.createElement('div');
         divUnderPhoto.setAttribute('class', 'under_photo');
         article.appendChild(divUnderPhoto);
         name.textContent = title; 
         name.setAttribute('class', "img_title");
+        name.setAttribute("role", "Text");
         divUnderPhoto.appendChild(name);
         const divLike = document.createElement("div");
         divLike.setAttribute("class", "div_like")
@@ -98,7 +104,9 @@ function mediaFactory(data){
         like.textContent = likes;
         divLike.appendChild(like);
         const heart = document.createElement('span');
-        heart.setAttribute('class','fa-solid fa-heart')
+        heart.setAttribute('class','fa-solid fa-heart');
+        heart.setAttribute("aria-label", "likes");
+        heart.setAttribute("onclick", `increaseLike('${likes}','${title}')`);
         divLike.appendChild(heart);
 
         return article;
@@ -113,6 +121,7 @@ function mediaFactory(data){
         const sumLikes = document.createElement('p');
         sumLikes.setAttribute('id', 'sum_likes');
         sumLikes.textContent = sumOfLikes();
+        sumLikes.setAttribute("role", "Text");
         divLikes.appendChild(sumLikes);
         const heart = document.createElement('span');
         heart.setAttribute('class','fa-solid fa-heart');

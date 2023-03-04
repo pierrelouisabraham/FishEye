@@ -94,7 +94,8 @@ function openModalLightbox(imageUrl, id, title) {
     const imgLight = document.getElementById('image_lightbox');
     const video = document.getElementById("video_lightbox");
     const titleHtml = document.getElementById("title_media");
-    titleHtml.textContent = title
+    titleHtml.textContent = title;
+    titleHtml.setAttribute("role", "Text");
     if (imageUrl.includes('.mp4')) {
         imgLight.setAttribute("name", id);
         imgLight.style.display = "none";
@@ -104,8 +105,8 @@ function openModalLightbox(imageUrl, id, title) {
         }
         
         const src = document.createElement("source");
-            src.setAttribute("src", imageUrl)
-            src.setAttribute("type", "video/mp4")
+            src.setAttribute("src", imageUrl);
+            src.setAttribute("type", "video/mp4");
             video.appendChild(src)
     } 
     else {
@@ -113,6 +114,7 @@ function openModalLightbox(imageUrl, id, title) {
         imgLight.style.display = "block";
         imgLight.setAttribute("src", imageUrl);
         imgLight.setAttribute("name", id);
+        imgLight.setAttribute("alt", title);
     }
     
     

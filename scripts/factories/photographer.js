@@ -6,6 +6,7 @@ function photographerFactory(data) {
     function getUserCardDOM() {
         const a=document.createElement('a');
         a.href='./photographer.html?id='+id;
+        a.setAttribute("role", "link (h2) + image")
         a.setAttribute("aria-label", name);
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
@@ -16,13 +17,16 @@ function photographerFactory(data) {
         h2.textContent = name;
         const pville = document.createElement('p');
         pville.textContent = city+", "+country;
-        pville.setAttribute('class', "country")
+        pville.setAttribute('class', "country");
+        pville.setAttribute("role", "texte statique");
         const tag = document.createElement('p');
         tag.textContent = tagline;
         tag.setAttribute("class", "tagline");
+        tag.setAttribute("role", "texte statique");
         const pricePhoto = document.createElement('p');
         pricePhoto.textContent = price+"€/jour";
         pricePhoto.setAttribute("class", "price");
+        pricePhoto.setAttribute("role", "texte statique");
         article.appendChild(a);
         a.appendChild(img);
         a.appendChild(h2);

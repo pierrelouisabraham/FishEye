@@ -17,7 +17,11 @@ header {
 
 h1 {
     color: #901C1C;
-    margin-right: 100px;
+    margin: 0;
+    font-style: "DM Sans";
+    font-weight: 400;
+    font-size: 36px;
+    text-align: center;
 }
 
 h2 {
@@ -107,6 +111,7 @@ video {
 .fa-solid {
     color: #901C1C;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .under_photo {
@@ -236,7 +241,7 @@ option:disabled{
 
 #sum_likes_icon .fa-solid {
     color: #000000;
-    
+    cursor: default;
 }
 
 #price {
