@@ -55,7 +55,7 @@ function mediaFactory(data){
 
     function getBookdom(photographer) {
         
-        const namePhoto = photographer.name
+        const namePhoto = photographer.name;
         const images = `assets/Sample Photos/${namePhoto}/${image}`;
         const videos = `assets/Sample Photos/${namePhoto}/${video}`;
         const article = document.createElement('article');
@@ -64,14 +64,13 @@ function mediaFactory(data){
         if(isKeyExists(data,"video")) {
             const vid = document.createElement('video');
             vid.setAttribute("class", "img_video");
-            vid.setAttribute('controls', '')
+            vid.setAttribute("onclick", `openModalLightbox('${videos}','${id}', '${title}')`);
             article.appendChild(vid);
             const src = document.createElement("source");
-            src.setAttribute("src", videos)
-            src.setAttribute("type", "video/mp4")
-            vid.appendChild(src)
-            name.setAttribute("onclick", `openModalLightbox('${videos}','${id}', '${title}')`);
-            name.style.cursor = "pointer"
+            src.setAttribute("src", videos);
+            src.setAttribute("type", "video/mp4");
+            vid.appendChild(src);
+            vid.style.cursor = "pointer";
         }
         else {
             const img = document.createElement('img');
@@ -80,7 +79,7 @@ function mediaFactory(data){
             img.setAttribute("class", "photo");
             img.setAttribute("onclick", `openModalLightbox('${images}','${id}','${title}')`);
             article.appendChild(img);
-
+            img.style.cursor = "pointer";
         }
         const divUnderPhoto = document.createElement('div');
         divUnderPhoto.setAttribute('class', 'under_photo');

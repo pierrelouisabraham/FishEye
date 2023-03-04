@@ -3,6 +3,7 @@
 body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
+    object-fit: cover;
 }
 
 
@@ -34,7 +35,6 @@ h2 {
     font-weight: 400;
     font-size: 13px;
     line-height: 17px;
-/* identical to box height */
     text-align: center;
     color: #901C1C;
 }
@@ -198,6 +198,7 @@ option {
     line-height: 31px;
     text-align: right;
     color: #911C1C;
+    cursor: pointer;
 }
 
 option:disabled{

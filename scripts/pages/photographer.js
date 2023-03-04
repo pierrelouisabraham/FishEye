@@ -1,6 +1,8 @@
+//Mettre le code JavaScript lié à la page photographer.html
 var currentMedias = [];
 var currentPhoto;
 var cptincrease = 0;
+
 
 async function init() {
     var params = (new URL(document.location)).searchParams;
@@ -22,7 +24,6 @@ async function displayDataPhoto(photographer) {
     photographerSection.insertBefore(cardModel, button);
     const sortModel = contactPhotographer.sortImageNav();
     main.appendChild(sortModel);
-    console.log(photographer)
     currentMedias = photographer["medias"];
     const divFlex = document.createElement('div');
     divFlex.setAttribute('class', "flexible")
@@ -40,14 +41,14 @@ async function displayDataPhoto(photographer) {
     const selector = document.querySelector("#p_sort"); 
     const domToRemove = document.querySelector(".mosaique")
 
-selector.addEventListener("change", (event) => {
+    selector.addEventListener("change", (event) => {
     if(selector.value == "Popularité")
     {
             currentMedias =  sortArrayPopularity(currentMedias);
-            removeAllChildNodes(div)
+            removeAllChildNodes(div);
             currentMedias.forEach((currentMedia) => {
                 const bookmodel = mediaFactory(currentMedia);
-                const bookDom = bookmodel.getBookdom(photographer.name);
+                const bookDom = bookmodel.getBookdom(photographer);
                 div.appendChild(bookDom);
             });
     }
@@ -57,7 +58,7 @@ selector.addEventListener("change", (event) => {
             removeAllChildNodes(div)
             currentMedias.forEach((currentMedia) => {
                 const bookmodel = mediaFactory(currentMedia);
-                const bookDom = bookmodel.getBookdom(photographer.name);
+                const bookDom = bookmodel.getBookdom(photographer);
                 div.appendChild(bookDom);
             });
     }
@@ -67,7 +68,7 @@ selector.addEventListener("change", (event) => {
             removeAllChildNodes(div)
             currentMedias.forEach((currentMedia) => {
                 const bookmodel = mediaFactory(currentMedia);
-                const bookDom = bookmodel.getBookdom(photographer.name);
+                const bookDom = bookmodel.getBookdom(photographer);
                 div.appendChild(bookDom);
             });
     }
@@ -134,10 +135,10 @@ function sumOfLikes() {
         return accumulator + curValue.likes
     
     }, initialValue)
-    
-    console.log(sum)
 return sum;
 }
+
+// utiliser reduce pour la somme des likes
 
 function nextImage () {
     const currentImage = document.getElementById("image_lightbox")
@@ -180,10 +181,10 @@ function increaseLike(like, title) {
     var cpt = sumOfLikes();
     const likes = document.getElementById(title);
     const globalLikes = document.getElementById("sum_likes");
-    console.log(likes.getAttribute("isliked"))
     if(likes.getAttribute("isliked") == "false"){
         likes.textContent = parseInt(like) + 1;
-        likes.setAttribute("isliked", "true");
+        likes.setAttribute("isliked", "true")
+        
         cptincrease = cptincrease + 1;
         globalLikes.textContent = cpt + cptincrease;
     }
