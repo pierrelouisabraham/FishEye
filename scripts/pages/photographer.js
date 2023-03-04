@@ -1,6 +1,6 @@
-//Mettre le code JavaScript lié à la page photographer.html
 var currentMedias = [];
 var currentPhoto;
+var cptincrease = 0;
 
 async function init() {
     var params = (new URL(document.location)).searchParams;
@@ -139,8 +139,6 @@ function sumOfLikes() {
 return sum;
 }
 
-// utiliser reduce pour la somme des likes
-
 function nextImage () {
     const currentImage = document.getElementById("image_lightbox")
     const currentImageSrc = currentImage.src.split('/')[5];
@@ -159,21 +157,34 @@ function nextImage () {
     }
 }
     
-  function previousImage () {
-    const currentImage = document.getElementById("image_lightbox")
-    const currentImageSrc = currentImage.src.split('/')[5];
-    const currentImageName = currentImage.getAttribute("name");
-    const compare = (element) => element.id == currentImageName;
-    var index = currentMedias.findIndex(compare);
-    var previousIndex = index - 1;
-    if(previousIndex < 0) {
-        previousIndex = currentMedias.length - 1;
-    }
-    if('video' in currentMedias[previousIndex]) {
-        openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[previousIndex].video), currentMedias[previousIndex].id, currentMedias[previousIndex].title); 
-    }
-    else {
-        openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[previousIndex].image), currentMedias[previousIndex].id, currentMedias[previousIndex].title);
-    }
-    
+function previousImage () {
+  const currentImage = document.getElementById("image_lightbox")
+  const currentImageSrc = currentImage.src.split('/')[5];
+  const currentImageName = currentImage.getAttribute("name");
+  const compare = (element) => element.id == currentImageName;
+  var index = currentMedias.findIndex(compare);
+  var previousIndex = index - 1;
+  if(previousIndex < 0) {
+      previousIndex = currentMedias.length - 1;
   }
+  if('video' in currentMedias[previousIndex]) {
+      openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[previousIndex].video), currentMedias[previousIndex].id, currentMedias[previousIndex].title); 
+  }
+  else {
+      openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[previousIndex].image), currentMedias[previousIndex].id, currentMedias[previousIndex].title);
+  }
+  
+}
+
+function increaseLike(like, title) {
+    var cpt = sumOfLikes();
+    const likes = document.getElementById(title);
+    const globalLikes = document.getElementById("sum_likes");
+    console.log(likes.getAttribute("isliked"))
+    if(likes.getAttribute("isliked") == "false"){
+        likes.textContent = parseInt(like) + 1;
+        likes.setAttribute("isliked", "true");
+        cptincrease = cptincrease + 1;
+        globalLikes.textContent = cpt + cptincrease;
+    }
+}
