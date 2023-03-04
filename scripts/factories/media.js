@@ -87,17 +87,20 @@ function mediaFactory(data){
         article.appendChild(divUnderPhoto);
         name.textContent = title; 
         name.setAttribute('class', "img_title");
-        divUnderPhoto.appendChild(name)
+        divUnderPhoto.appendChild(name);
         const divLike = document.createElement("div");
         divLike.setAttribute("class", "div_like")
         divUnderPhoto.appendChild(divLike)
         const like = document.createElement("span")
         like.setAttribute("class", "like");
+        like.setAttribute("id", title)
+        like.setAttribute("isliked", "false");
+        like.setAttribute("onclick", `increaseLike('${likes}','${title}')`);
         like.textContent = likes;
         divLike.appendChild(like);
         const heart = document.createElement('span');
         heart.setAttribute('class','fa-solid fa-heart')
-        divLike.appendChild(heart)
+        divLike.appendChild(heart);
 
         return article;
     }
