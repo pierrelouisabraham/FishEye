@@ -67,6 +67,7 @@ function mediaFactory(data){
         
         const article = document.createElement('article');
         article.setAttribute("class", "mosaique");
+        const name = document.createElement('p');
         if(isKeyExists(data,"video")) {
             const vid = document.createElement('video');
             vid.setAttribute("class", "img_video");
@@ -76,6 +77,7 @@ function mediaFactory(data){
             src.setAttribute("src", videos)
             src.setAttribute("type", "video/mp4")
             vid.appendChild(src)
+            name.setAttribute("onclick", `openModalLightbox('${videos}','${id}')`);
         }
         else {
             const img = document.createElement('img');
@@ -89,10 +91,11 @@ function mediaFactory(data){
         const divUnderPhoto = document.createElement('div');
         divUnderPhoto.setAttribute('class', 'under_photo');
         article.appendChild(divUnderPhoto);
-        const pville = document.createElement('p');
-        pville.textContent = title;
-        pville.setAttribute('class', "country");
-        divUnderPhoto.appendChild(pville)
+        
+        name.textContent = title;
+        
+        name.setAttribute('class', "country");
+        divUnderPhoto.appendChild(name)
         const divLike = document.createElement("div");
         divLike.setAttribute("class", "div_like")
         divUnderPhoto.appendChild(divLike)

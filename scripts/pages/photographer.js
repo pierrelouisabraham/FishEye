@@ -89,11 +89,15 @@ function openModalLightbox(imageUrl, id) {
     document.querySelector("#lightbox_modal").style.display = "block";
     const imgLight = document.getElementById('image_lightbox');
     const video = document.getElementById("video_lightbox");
-    console.log(imageUrl)
+    const title = document.getElementById("title_media");
     if (imageUrl.includes('.mp4')) {
         imgLight.setAttribute("name", id);
         imgLight.style.display = "none";
         video.style.display = "block";
+        if(video.hasChildNodes()) {
+            video.innerHTML = '';
+        }
+        
         const src = document.createElement("source");
             src.setAttribute("src", imageUrl)
             src.setAttribute("type", "video/mp4")
@@ -149,10 +153,8 @@ function nextImage () {
     const compare = (element) => element.id == currentImageName;
     var index = currentMedias.findIndex(compare);
     var previousIndex = index - 1;
-    console.log(previousIndex)
     if(previousIndex < 0) {
         previousIndex = currentMedias.length - 1;
-        console.log(previousIndex)
     }
     if('video' in currentMedias[previousIndex]) {
         openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[previousIndex].video), currentMedias[previousIndex].id); 
