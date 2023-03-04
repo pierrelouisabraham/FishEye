@@ -59,12 +59,11 @@ function mediaFactory(data){
         return article;
     }
 
-    function getBookdom(namePhoto) {
+    function getBookdom(photographer) {
         
+        const namePhoto = photographer.name
         const images = `assets/Sample Photos/${namePhoto}/${image}`;
         const videos = `assets/Sample Photos/${namePhoto}/${video}`;
-
-        
         const article = document.createElement('article');
         article.setAttribute("class", "mosaique");
         const name = document.createElement('p');
@@ -77,14 +76,14 @@ function mediaFactory(data){
             src.setAttribute("src", videos)
             src.setAttribute("type", "video/mp4")
             vid.appendChild(src)
-            name.setAttribute("onclick", `openModalLightbox('${videos}','${id}')`);
+            name.setAttribute("onclick", `openModalLightbox('${videos}','${id}', '${title}')`);
         }
         else {
             const img = document.createElement('img');
             img.setAttribute("src", images);
             img.setAttribute("alt", title);
             img.setAttribute("class", "photo");
-            img.setAttribute("onclick", `openModalLightbox('${images}','${id}')`);
+            img.setAttribute("onclick", `openModalLightbox('${images}','${id}','${title}')`);
             article.appendChild(img);
 
         }

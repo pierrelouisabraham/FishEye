@@ -1,6 +1,6 @@
 //Mettre le code JavaScript lié à la page photographer.html
 var currentMedias = [];
-
+var currentPhoto;
 
 async function init() {
     var params = (new URL(document.location)).searchParams;
@@ -33,7 +33,7 @@ async function displayDataPhoto(photographer) {
     const div = document.querySelector(".flexible")
     currentMedias.forEach((currentMedia) => {
         const bookmodel = mediaFactory(currentMedia);
-        const bookDom = bookmodel.getBookdom(photographer.name);
+        const bookDom = bookmodel.getBookdom(photographer);
         div.appendChild(bookDom);
     });
 
@@ -85,11 +85,12 @@ async function getPhotographer(id) {
     return photographer;
 }
 
-function openModalLightbox(imageUrl, id) {
+function openModalLightbox(imageUrl, id, title) {
     document.querySelector("#lightbox_modal").style.display = "block";
     const imgLight = document.getElementById('image_lightbox');
     const video = document.getElementById("video_lightbox");
-    const title = document.getElementById("title_media");
+    const titleHtml = document.getElementById("title_media");
+    titleHtml.textContent = title
     if (imageUrl.includes('.mp4')) {
         imgLight.setAttribute("name", id);
         imgLight.style.display = "none";
@@ -102,7 +103,6 @@ function openModalLightbox(imageUrl, id) {
             src.setAttribute("src", imageUrl)
             src.setAttribute("type", "video/mp4")
             video.appendChild(src)
-      
     } 
     else {
         video.style.display = "none";
@@ -139,10 +139,10 @@ function nextImage () {
      nextIndex = 0;
     }
     if('video' in currentMedias[nextIndex]) {
-        openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[nextIndex].video), currentMedias[nextIndex].id); 
+        openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[nextIndex].video), currentMedias[nextIndex].id, currentMedias[nextIndex].title); 
     }
     else {
-        openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[nextIndex].image), currentMedias[nextIndex].id);
+        openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[nextIndex].image), currentMedias[nextIndex].id, currentMedias[nextIndex].title);
     }
 }
     
@@ -157,10 +157,10 @@ function nextImage () {
         previousIndex = currentMedias.length - 1;
     }
     if('video' in currentMedias[previousIndex]) {
-        openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[previousIndex].video), currentMedias[previousIndex].id); 
+        openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[previousIndex].video), currentMedias[previousIndex].id, currentMedias[previousIndex].title); 
     }
     else {
-        openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[previousIndex].image), currentMedias[previousIndex].id);
+        openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[previousIndex].image), currentMedias[previousIndex].id, currentMedias[previousIndex].title);
     }
     
   }

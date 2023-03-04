@@ -77,3 +77,9 @@
     width: 100%;
     height: 100%;
 }
+
+#title_media {
+    bottom: -45px;
+    position: fixed;
+    left: 50px;
+}
