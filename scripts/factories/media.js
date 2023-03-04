@@ -38,10 +38,6 @@ function mediaFactory(data){
         const optionPop = document.createElement("option");
         optionPop.setAttribute("value", "Popularité");
         optionPop.textContent = "Popularité";
-/*         const separator = document.createElement("option");
-        separator.setAttribute("class", "separator")
-        separator.setAttribute("disabled", '');
-        separator.textContent = `━━━━━━━━━━━━━━━━`; */
         const optionDate = document.createElement("option");
         optionDate.setAttribute("value", "Date");
         optionDate.textContent = "Date";
@@ -51,11 +47,9 @@ function mediaFactory(data){
         article.appendChild(texte)
         article.appendChild(pSort);
         pSort.appendChild(optionPop);
-       /*  pSort.appendChild(separator); */
         pSort.appendChild(optionDate);
         pSort.appendChild(optionTitle);
-        /* "──────────"/*  */
-        
+
         return article;
     }
 
@@ -77,6 +71,7 @@ function mediaFactory(data){
             src.setAttribute("type", "video/mp4")
             vid.appendChild(src)
             name.setAttribute("onclick", `openModalLightbox('${videos}','${id}', '${title}')`);
+            name.style.cursor = "pointer"
         }
         else {
             const img = document.createElement('img');
@@ -90,10 +85,8 @@ function mediaFactory(data){
         const divUnderPhoto = document.createElement('div');
         divUnderPhoto.setAttribute('class', 'under_photo');
         article.appendChild(divUnderPhoto);
-        
-        name.textContent = title;
-        
-        name.setAttribute('class', "country");
+        name.textContent = title; 
+        name.setAttribute('class', "img_title");
         divUnderPhoto.appendChild(name)
         const divLike = document.createElement("div");
         divLike.setAttribute("class", "div_like")
@@ -109,5 +102,26 @@ function mediaFactory(data){
         return article;
     }
 
-    return {getPhotographSection, sortImageNav, getBookdom}
+    function priceAndLikes() {
+        const articleLikesAndPrice = document.createElement('article');
+        articleLikesAndPrice.setAttribute('id', "flex_price");
+        const divLikes = document.createElement('div');
+        divLikes.setAttribute('id', 'sum_likes_icon');
+        articleLikesAndPrice.appendChild(divLikes);
+        const sumLikes = document.createElement('p');
+        sumLikes.setAttribute('id', 'sum_likes');
+        sumLikes.textContent = sumOfLikes();
+        divLikes.appendChild(sumLikes);
+        const heart = document.createElement('span');
+        heart.setAttribute('class','fa-solid fa-heart');
+        divLikes.appendChild(heart);
+        const priceDiv = document.createElement('div');
+        priceDiv.setAttribute('id', 'price');
+        priceDiv.textContent = price+'€/jour'
+        articleLikesAndPrice.appendChild(priceDiv); 
+        
+        return articleLikesAndPrice;
+    }
+
+    return {getPhotographSection, sortImageNav, getBookdom, priceAndLikes}
 }

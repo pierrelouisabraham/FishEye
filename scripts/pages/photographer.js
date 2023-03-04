@@ -22,7 +22,7 @@ async function displayDataPhoto(photographer) {
     photographerSection.insertBefore(cardModel, button);
     const sortModel = contactPhotographer.sortImageNav();
     main.appendChild(sortModel);
-
+    console.log(photographer)
     currentMedias = photographer["medias"];
     const divFlex = document.createElement('div');
     divFlex.setAttribute('class', "flexible")
@@ -72,7 +72,10 @@ selector.addEventListener("change", (event) => {
             });
     }
   });
-    
+  const bookmodel = mediaFactory(photographer);
+  const priceDom =  bookmodel.priceAndLikes();
+  main.appendChild(priceDom);
+
 }
 
 async function getPhotographer(id) {
@@ -124,7 +127,17 @@ function loadVideo(url) {
     source.setAttribute("type", "video/mp4")
 }
 
+function sumOfLikes() {
+    let initialValue = 0
+    let sum = currentMedias.reduce(function (accumulator, curValue) {
 
+        return accumulator + curValue.likes
+    
+    }, initialValue)
+    
+    console.log(sum)
+return sum;
+}
 
 // utiliser reduce pour la somme des likes
 
