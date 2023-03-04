@@ -37,7 +37,6 @@ function isKeyExists(obj,key){
 
 function sortArrayPopularity(data){
    data.sort((a,b)=>a.likes-b.likes);
-   console.log(data)
    return data;
 }
 
@@ -56,7 +55,6 @@ function sortArrayTitle(data){
    let title='Title';
    const sortedList = data.sort((a, b) =>
     a.title.localeCompare(b.title));
-   console.log(sortedList)
    return sortedList;
 }
 

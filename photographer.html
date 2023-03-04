@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/5be0ef6e35.js" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <title>Fisheye - photographe </title>
   </head>
   <body>
@@ -46,12 +47,20 @@
 			</div>
 		</div>
     <div id="lightbox_modal">
-      <button class="close_lightbox" onclick="closeModalLightbox()"></button>
-      <button class="prev_lightbox"></button>
-      <button class="next_lightbox"></button>
+      
+      
+      
       <div class="lightbox__container">
-        <img id="img_lightbox" src="" alt=""/>
+        <button class="prev_lightbox" onclick="previousImage()"></button>
+        <img id="image_lightbox" class="img_lightbox" src="" alt=""/>
+        <video id="video_lightbox" class="img_lightbox" controls>
+          
+        </video>
+        <button class="next_lightbox" onclick="nextImage()"></button>
+        <button class="close_lightbox" onclick="closeModalLightbox()"></button>
+        
       </div>
+      <p></p>
     </div>
     <script src="/scripts/utils/utils.js"></script>
     <script src="/scripts/factories/media.js"></script>

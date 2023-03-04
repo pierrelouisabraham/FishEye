@@ -38,6 +38,10 @@ function mediaFactory(data){
         const optionPop = document.createElement("option");
         optionPop.setAttribute("value", "Popularité");
         optionPop.textContent = "Popularité";
+/*         const separator = document.createElement("option");
+        separator.setAttribute("class", "separator")
+        separator.setAttribute("disabled", '');
+        separator.textContent = `━━━━━━━━━━━━━━━━`; */
         const optionDate = document.createElement("option");
         optionDate.setAttribute("value", "Date");
         optionDate.textContent = "Date";
@@ -47,9 +51,11 @@ function mediaFactory(data){
         article.appendChild(texte)
         article.appendChild(pSort);
         pSort.appendChild(optionPop);
+       /*  pSort.appendChild(separator); */
         pSort.appendChild(optionDate);
         pSort.appendChild(optionTitle);
-
+        /* "──────────"/*  */
+        
         return article;
     }
 
@@ -76,7 +82,7 @@ function mediaFactory(data){
             img.setAttribute("src", images);
             img.setAttribute("alt", title);
             img.setAttribute("class", "photo");
-            img.setAttribute("onclick", `openModalLightbox('${images}')`);
+            img.setAttribute("onclick", `openModalLightbox('${images}','${id}')`);
             article.appendChild(img);
 
         }

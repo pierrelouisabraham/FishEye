@@ -85,61 +85,80 @@ async function getPhotographer(id) {
     return photographer;
 }
 
-function openModalLightbox(imageUrl) {
+function openModalLightbox(imageUrl, id) {
     document.querySelector("#lightbox_modal").style.display = "block";
-    const currentIndex = currentMedias.indexOf(imageUrl);
-    const imgLight = document.getElementById('img_lightbox');
-    imgLight.setAttribute("src", imageUrl);
-
+    const imgLight = document.getElementById('image_lightbox');
+    const video = document.getElementById("video_lightbox");
+    console.log(imageUrl)
+    if (imageUrl.includes('.mp4')) {
+        imgLight.setAttribute("name", id);
+        imgLight.style.display = "none";
+        video.style.display = "block";
+        const src = document.createElement("source");
+            src.setAttribute("src", imageUrl)
+            src.setAttribute("type", "video/mp4")
+            video.appendChild(src)
+      
+    } 
+    else {
+        video.style.display = "none";
+        imgLight.style.display = "block";
+        imgLight.setAttribute("src", imageUrl);
+        imgLight.setAttribute("name", id);
+    }
+    
+    
 }
 
 function closeModalLightbox() {
     document.querySelector("#lightbox_modal").style.display = "none";
 }
 
-
-
-
-
-
-
-
-function loadImage(url) {
-    this.url = null
-    const image = new Image()
-    const container = this.element.querySelector('.lightbox__container')
-    const loader = document.createElement('div')
-    loader.classList.add('lightbox__loader')
-    container.innerHTML = ''
-    container.appendChild(loader)
-    image.onload = () => {
-      container.removeChild(loader)
-      container.appendChild(image)
-      this.url = url
-    }
-    image.src = url
+function loadVideo(url) {
+    const source = document.getElementById("source_video");
+    source.setAttribute("src", url)
+    source.setAttribute("type", "video/mp4")
 }
 
-    /**
-   * @param {MouseEvent|KeyboardEvent} e 
-   */
-    function next (e) {
-        e.preventDefault()
-        let i = currentMedias.findIndex(image => image === this.url)
-        if (i === currentMedias.length - 1) {
-          i = -1
-        }
-        this.loadImage(currentMedias[i + 1])
-      }
+
+
+// utiliser reduce pour la somme des likes
+
+function nextImage () {
+    const currentImage = document.getElementById("image_lightbox")
+    const currentImageSrc = currentImage.src.split('/')[5];
+    const currentImageName = currentImage.getAttribute("name");
+    const compare = (element) => element.id == currentImageName;
+    var index = currentMedias.findIndex(compare);
+    var nextIndex = index + 1;
+    if(nextIndex > currentMedias.length - 1) {
+     nextIndex = 0;
+    }
+    if('video' in currentMedias[nextIndex]) {
+        openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[nextIndex].video), currentMedias[nextIndex].id); 
+    }
+    else {
+        openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[nextIndex].image), currentMedias[nextIndex].id);
+    }
+}
     
-      /**
-       * @param {MouseEvent|KeyboardEvent} e 
-       */
-      function prev (e) {
-        e.preventDefault()
-        let i = currentMedias.findIndex(image => image === this.url)
-        if (i === 0) {
-          i = currentMedias.length
-        }
-        this.loadImage(currentMedias[i - 1])
-      }
+  function previousImage () {
+    const currentImage = document.getElementById("image_lightbox")
+    const currentImageSrc = currentImage.src.split('/')[5];
+    const currentImageName = currentImage.getAttribute("name");
+    const compare = (element) => element.id == currentImageName;
+    var index = currentMedias.findIndex(compare);
+    var previousIndex = index - 1;
+    console.log(previousIndex)
+    if(previousIndex < 0) {
+        previousIndex = currentMedias.length - 1;
+        console.log(previousIndex)
+    }
+    if('video' in currentMedias[previousIndex]) {
+        openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[previousIndex].video), currentMedias[previousIndex].id); 
+    }
+    else {
+        openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[previousIndex].image), currentMedias[previousIndex].id);
+    }
+    
+  }

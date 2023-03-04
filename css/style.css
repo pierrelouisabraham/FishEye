@@ -176,3 +176,17 @@ option {
     margin-top: 2%;
     margin-bottom: 2%;
 }
+
+.like {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 31px;
+    text-align: right;
+    color: #911C1C;
+}
+
+option:disabled{
+    color: white;
+}

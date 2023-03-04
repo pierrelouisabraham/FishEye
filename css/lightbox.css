@@ -6,6 +6,7 @@
     height: 100%;
     z-index: 10;
     display: none;
+    background-color: white;
 }
 
 .prev_lightbox, .next_lightbox {
@@ -15,30 +16,65 @@
     cursor: pointer;
 }
 
-.lightbox__next {
-    background: url(../assets/icons/chevron-right-solid.svg);
+.next_lightbox {
+    background: url(../assets/icons/chevron-right-solid.svg) no-repeat center;
     color: #901C1C;
+    height: 29.64px;
+    width: 48px;
+    border-radius: 0px;
+    position: relative;
 }
 
-.lightbox__prev {
-    background: url(../assets/icons/chevron-left-solid.svg);
+.prev_lightbox {
+    background: url(../assets/icons/chevron-left-solid.svg) no-repeat center;
     color: #901C1C;
+    height:29.64px;
+    width: 48px;
+    border-radius: 0px;
+    position: relative;
+    
 }
 
-.lightbox__close {
-    background: url(../assets/icons/close.svg);
+.close_lightbox {
+    position: relative;
+    background: url(../assets/icons/close.svg) no-repeat;
     color: #901C1C;
+    height: 42px;
+    width: 50px;
+    top: 15px;
+    border: none;
+    align-self: baseline; 
 }
 
 .lightbox__container {
-    width: 50%;
+    width: 75%;
     margin: auto;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .lightbox__container img {
     width: 100%;
+    height: 100%;
   }
+
+#video_lightbox {
+    display: none;
+}
+
+.lightbox__container video {
+    width: 100%;
+    height: 100%;
+}
+
+.lightbox__container video source {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
