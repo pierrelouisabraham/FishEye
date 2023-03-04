@@ -21,30 +21,30 @@
         <button class="contact_button" role="buttons" onclick="displayModal()">Contactez-moi</button>
       </div>
     </main>
-    <div id="contact_modal">
+    <div id="contact_modal" role="Dialog">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <h2 role="Heading">Contactez-moi</h2>
+          <img src="assets/icons/close.svg" onclick="closeModal()" role="Button"/>
         </header>
 				<form method="post">
           <div class="formData" data-error="Veuillez entrer au minimum deux caractères" data-error-visible="false">
-            <label for="first">Prénom</label>
+            <label for="first" role="label">Prénom</label>
             <input class="text-control" type="text" id="first" name="first" data-error-visible="false" />
           </div>
           <div class="formData" data-error="Veuillez entrer au minimum deux caractères" data-error-visible="false">
-            <label for="last">Nom</label>
-            <input class="text-control" type="text" id="last" name="last" data-error-visible="false" />
+            <label for="last" role="label">Nom</label>
+            <input role="Text field" class="text-control" type="text" id="last" name="last" data-error-visible="false" />
           </div>
           <div class="formData" data-error="Votre mail n'est pas conforme." data-error-visible="false">
-            <label for="email">E-mail</label>
-            <input class="text-control" type="text" id="email" name="email" data-error-visible="false" />
+            <label for="email" role="label">E-mail</label>
+            <input role="Text field" class="text-control" type="text" id="email" name="email" data-error-visible="false" />
             </div>
             <div>
-            <label>Votre message</label>
-						<input class="text-control" type="text" id="message" name="message" data-error-visible="false"/>
+            <label role="label">Votre message</label>
+						<input role="Text field" class="text-control" type="text" id="message" name="message" data-error-visible="false"/>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button class="contact_button" role="Button">Envoyer</button>
 				</form>
 			</div>
 		</div>
@@ -58,7 +58,7 @@
           <p id="title_media"></p>
         </div>
         <button class="next_lightbox" onclick="nextImage()" role="link" aria-label="next image"></button>
-        <button class="close_lightbox" onclick="closeModalLightbox()" role="link" aria-label="close"></button>
+        <button class="close_lightbox" onclick="closeModalLightbox()" role="link" aria-label="close dialog"></button>
       </div>
       
     </div>
