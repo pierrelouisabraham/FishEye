@@ -11,7 +11,6 @@ async function getObjectFromJson(url) {
 async function getPhotographers() {
    const data = await getObjectFromJson('../../data/photographers.json');
    const photographers = data["photographers"];
-   // et bien retourner le tableau photographers seulement une fois récupéré
    return ({
        photographers: [...photographers]})
 }

@@ -12,37 +12,37 @@
   </head>
   <body>
     <header>
-      <a href="index.html" role="Image link">
+      <a href="index.html" role="Image link" tabindex="1">
       <img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page"/>
       </a>
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" role="buttons" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" role="buttons" onclick="displayModal()" tabindex="2">Contactez-moi</button>
       </div>
     </main>
     <div id="contact_modal" role="Dialog">
 			<div class="modal">
 				<header>
           <h2 role="Heading">Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" role="Button"/>
+          <img src="assets/icons/close.svg" onclick="closeModal()" role="Button" alt="Close"/>
         </header>
 				<form method="post">
           <div class="formData" data-error="Veuillez entrer au minimum deux caractères" data-error-visible="false">
-            <label for="first" role="label">Prénom</label>
-            <input class="text-control" type="text" id="first" name="first" data-error-visible="false" />
+            <label for="first" role="first">Prénom</label>
+            <input class="text-control" title="Prénom" type="text" id="first" name="first" data-error-visible="false" placeholder="Prénom" aria-label="Prénom"/>
           </div>
           <div class="formData" data-error="Veuillez entrer au minimum deux caractères" data-error-visible="false">
-            <label for="last" role="label">Nom</label>
-            <input role="Text field" class="text-control" type="text" id="last" name="last" data-error-visible="false" />
+            <label for="last" role="last">Nom</label>
+            <input role="Text" title="Nom" class="text-control" type="text" id="last" name="last" data-error-visible="false" placeholder="Nom" aria-label="Nom"/>
           </div>
           <div class="formData" data-error="Votre mail n'est pas conforme." data-error-visible="false">
-            <label for="email" role="label">E-mail</label>
-            <input role="Text field" class="text-control" type="text" id="email" name="email" data-error-visible="false" />
+            <label for="email" role="email">E-mail</label>
+            <input role="Text" title="email" class="text-control" type="text" id="email" name="email" data-error-visible="false" placeholder="email" aria-label="Email"/>
             </div>
             <div>
-            <label role="label">Votre message</label>
-						<input role="Text field" class="text-control" type="text" id="message" name="message" data-error-visible="false"/>
+            <label role="message">Votre message</label>
+						<input role="message" title="message" class="text-control" type="text" id="message" name="message" data-error-visible="false" placeholder="message" aria-label="Message"/>
 					</div>
           <button class="contact_button" role="Button">Envoyer</button>
 				</form>

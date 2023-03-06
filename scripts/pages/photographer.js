@@ -79,6 +79,9 @@ async function displayDataPhoto(photographer) {
 
 }
 
+
+
+
 async function getPhotographer(id) {
     const data = await getObjectFromJson('../../data/photographers.json');
     const photographers = data["photographers"];
@@ -116,9 +119,22 @@ function openModalLightbox(imageUrl, id, title) {
         imgLight.setAttribute("name", id);
         imgLight.setAttribute("alt", title);
     }
-    
+   
     
 }
+
+document.onkeydown = function(evt) {
+    evt = evt || window.event;
+    var isEscape = false;
+    if ("key" in evt) {
+        isEscape = (evt.key === "Escape" || evt.key === "Esc");
+    } else {
+        isEscape = (evt.keyCode === 27);
+    }
+    if (isEscape) {
+        closeModalLightbox();
+    }
+};
 
 function closeModalLightbox() {
     document.querySelector("#lightbox_modal").style.display = "none";
@@ -139,8 +155,6 @@ function sumOfLikes() {
     }, initialValue)
 return sum;
 }
-
-// utiliser reduce pour la somme des likes
 
 function nextImage () {
     const currentImage = document.getElementById("image_lightbox")

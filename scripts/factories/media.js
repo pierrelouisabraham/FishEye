@@ -38,6 +38,7 @@ function mediaFactory(data){
         texte.setAttribute("role", "input label");
         const pSort = document.createElement('select');
         pSort.setAttribute("id", "p_sort");
+        pSort.setAttribute("tabindex", "2");
         const optionPop = document.createElement("option");
         optionPop.setAttribute("value", "Popularité");
         optionPop.textContent = "Popularité";
@@ -63,6 +64,8 @@ function mediaFactory(data){
         const videos = `assets/Sample Photos/${namePhoto}/${video}`;
         const article = document.createElement('article');
         article.setAttribute("class", "mosaique");
+        article.setAttribute("role", title);
+        article.setAttribute("tabindex","2")
         const name = document.createElement('p');
         if(isKeyExists(data,"video")) {
             const vid = document.createElement('video');
@@ -79,6 +82,7 @@ function mediaFactory(data){
         else {
             const img = document.createElement('img');
             img.setAttribute("src", images);
+            img.setAttribute("role", "Link");
             img.setAttribute("alt", title);
             img.setAttribute("class", "photo");
             img.setAttribute("onclick", `openModalLightbox('${images}','${id}','${title}')`);
@@ -95,11 +99,12 @@ function mediaFactory(data){
         divUnderPhoto.appendChild(name);
         const divLike = document.createElement("div");
         divLike.setAttribute("class", "div_like")
-        divUnderPhoto.appendChild(divLike)
-        const like = document.createElement("span")
+        divUnderPhoto.appendChild(divLike);
+        const like = document.createElement("span");
         like.setAttribute("class", "like");
         like.setAttribute("id", title)
         like.setAttribute("isliked", "false");
+        like.setAttribute("tabindex","3")
         like.setAttribute("onclick", `increaseLike('${likes}','${title}')`);
         like.textContent = likes;
         divLike.appendChild(like);
