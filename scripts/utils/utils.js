@@ -10,7 +10,7 @@ async function getObjectFromJson(url) {
 
 async function getPhotographers() {
    const data = await getObjectFromJson('../../data/photographers.json');
-   const photographers = data["photographers"];
+   const photographers = await data["photographers"];
    return ({
        photographers: [...photographers]})
 }

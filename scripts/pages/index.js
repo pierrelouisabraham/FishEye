@@ -15,5 +15,3 @@
     };
     
     init();
-    
-//redimensionner les images portrait
