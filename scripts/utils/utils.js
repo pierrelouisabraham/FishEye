@@ -16,7 +16,7 @@ async function getPhotographers() {
 }
 
 async function getMedia() {
-   const data = await getObjectFromJson('../../data/photographers.json');
+   const data = await getObjectFromJson('https://raw.githubusercontent.com/pierrelouisabraham/FishEye/main/data/photographers.json');
    const media = data["media"];
    return({media: [...media]})
 }
