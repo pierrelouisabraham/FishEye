@@ -9,7 +9,7 @@ async function getObjectFromJson(url) {
 }
 
 async function getPhotographers() {
-   const data = await getObjectFromJson('../../data/photographers.json');
+   const data = await getObjectFromJson('https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Front-End-Fisheye/main/data/photographers.json');
    const photographers = await data["photographers"];
    return ({
        photographers: [...photographers]})
