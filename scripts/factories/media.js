@@ -83,12 +83,10 @@ function mediaFactory(data){
             const img = document.createElement('img');
             img.setAttribute("src", images);
             img.setAttribute("role", "Link");
-            img.setAttribute("alt", title);
             img.setAttribute("class", "photo");
             img.setAttribute("onclick", `openModalLightbox('${images}','${id}','${title}')`);
             article.appendChild(img);
             img.style.cursor = "pointer";
-            img.setAttribute("role", "Image link");
         }
         const divUnderPhoto = document.createElement('div');
         divUnderPhoto.setAttribute('class', 'under_photo');
