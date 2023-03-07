@@ -83,7 +83,7 @@ async function displayDataPhoto(photographer) {
 
 
 async function getPhotographer(id) {
-    const data = await getObjectFromJson('../../data/photographers.json');
+    const data = await getObjectFromJson('https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Front-End-Fisheye/main/data/photographers.json');
     const photographers = data["photographers"];
     const medias = data["media"]
     const photographer = photographers.find(photographer => photographer.id == id)
