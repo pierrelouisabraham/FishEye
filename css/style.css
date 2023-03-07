@@ -1,9 +1,13 @@
 @import url("photographer.css");
 
+
+*{
+    object-fit: cover;
+}
 body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
-    object-fit: cover;
+    
 }
 
 
