@@ -28,6 +28,10 @@ h1 {
     text-align: center;
 }
 
+header h1 {
+    margin-right: 100px;
+}
+
 h2 {
     margin: 0;
     font-style: "DM Sans";
