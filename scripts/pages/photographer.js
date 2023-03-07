@@ -168,11 +168,11 @@ function nextImage () {
     }
     if('video' in currentMedias[nextIndex]) {
         openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[nextIndex].video), currentMedias[nextIndex].id, currentMedias[nextIndex].title); 
-        console.log(currentImageSrc)
+        console.log(currentImageSrc, currentImage)
     }
     else {
         openModalLightbox("assets/Sample Photos/" + currentImageSrc + '/' + (currentMedias[nextIndex].image), currentMedias[nextIndex].id, currentMedias[nextIndex].title);
-        console.log(currentImageSrc)
+        console.log(currentImageSrc, currentImage)
     }
 }
     
