@@ -158,7 +158,7 @@ return sum;
 
 function nextImage () {
     const currentImage = document.getElementById("image_lightbox")
-    const currentImageSrc = currentImage.src.split('/')[4];
+    const currentImageSrc = currentImage.src.split('/')[5];
     const currentImageName = currentImage.getAttribute("name");
     const compare = (element) => element.id == currentImageName;
     var index = currentMedias.findIndex(compare);
@@ -178,7 +178,7 @@ function nextImage () {
     
 function previousImage () {
   const currentImage = document.getElementById("image_lightbox")
-  const currentImageSrc = currentImage.src.split('/')[4];
+  const currentImageSrc = currentImage.src.split('/')[5];
   const currentImageName = currentImage.getAttribute("name");
   const compare = (element) => element.id == currentImageName;
   var index = currentMedias.findIndex(compare);
