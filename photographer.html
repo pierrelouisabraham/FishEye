@@ -50,15 +50,15 @@
 		</div>
     <div id="lightbox_modal" role="Dialog" aria-label="image closeup view">
       <div class="lightbox__container">
-        <button class="prev_lightbox" onclick="previousImage()" role="link" aria-label="previous image"></button>
+        <button class="prev_lightbox" onclick="previousImage()" role="link" aria-label="previous image" tabindex="1"></button>
         <div class="mediabox">
           <img id="image_lightbox" class="img_lightbox" src="" alt=""/>
           <video id="video_lightbox" class="img_lightbox" controls>
           </video>
           <p id="title_media"></p>
         </div>
-        <button class="next_lightbox" onclick="nextImage()" role="link" aria-label="next image"></button>
-        <button class="close_lightbox" onclick="closeModalLightbox()" role="link" aria-label="close dialog"></button>
+        <button class="next_lightbox" onclick="nextImage()" role="link" aria-label="next image" tabindex="1"></button>
+        <button class="close_lightbox" onclick="closeModalLightbox()" role="link" aria-label="close dialog" tabindex="1"></button>
       </div>
       
     </div>
