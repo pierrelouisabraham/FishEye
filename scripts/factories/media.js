@@ -104,7 +104,7 @@ function mediaFactory(data){
         like.setAttribute("class", "like");
         like.setAttribute("id", title)
         like.setAttribute("isliked", "false");
-        like.setAttribute("tabindex","3")
+        like.setAttribute("tabindex","2")
         like.setAttribute("onclick", `increaseLike('${likes}','${title}')`);
         like.textContent = likes;
         divLike.appendChild(like);
