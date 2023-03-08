@@ -72,6 +72,7 @@ function mediaFactory(data){
             vid.setAttribute("class", "img_video");
             vid.setAttribute("onclick", `openModalLightbox('${videos}','${id}', '${title}')`);
             article.appendChild(vid);
+            console.log(videos)
             const src = document.createElement("source");
             src.setAttribute("src", videos);
             src.setAttribute("type", "video/mp4");
@@ -84,6 +85,7 @@ function mediaFactory(data){
             img.setAttribute("src", images);
             img.setAttribute("role", "Link");
             img.setAttribute("class", "photo");
+            console.log(images)
             img.setAttribute("onclick", `openModalLightbox('${images}','${id}','${title}')`);
             article.appendChild(img);
             img.style.cursor = "pointer";
