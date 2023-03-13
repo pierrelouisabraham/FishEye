@@ -206,5 +206,10 @@ function increaseLike(like, title) {
         
         cptincrease = cptincrease + 1;
         globalLikes.textContent = cpt + cptincrease;
+    } else {
+        likes.textContent = parseInt(like);
+        likes.setAttribute("isliked", "false");      
+        cptincrease = cptincrease - 1;
+        globalLikes.textContent = cpt + cptincrease;
     }
 }

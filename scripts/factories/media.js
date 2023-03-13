@@ -68,7 +68,7 @@ function mediaFactory(data){
         
         const aImg = document.createElement('a');
         aImg.setAttribute('class', 'a_img');
-        aImg.setAttribute('href', "#");
+        aImg.setAttribute('href', "javascript:void(0);");
         aImg.setAttribute("tabindex","2");
         article.appendChild(aImg);
         const name = document.createElement('p');
@@ -76,6 +76,7 @@ function mediaFactory(data){
             const vid = document.createElement('video');
             vid.setAttribute("class", "img_video");
             vid.setAttribute('alt', title);
+            aImg.setAttribute("aria-label", 'video');
             aImg.setAttribute("onclick", `openModalLightbox('${videos}','${id}', '${title}')`);
             aImg.appendChild(vid);
             const src = document.createElement("source");
@@ -103,19 +104,24 @@ function mediaFactory(data){
         const divLike = document.createElement("div");
         divLike.setAttribute("class", "div_like")
         divUnderPhoto.appendChild(divLike);
+        const aLike = document.createElement("a");
+        aLike.setAttribute("class", 'a_like'),
+        aLike.setAttribute('href', "javascript:void(0);");
+        aLike.setAttribute("onclick", `increaseLike('${likes}','${title}')`);
+        divLike.appendChild(aLike);
         const like = document.createElement("span");
         like.setAttribute("class", "like");
         like.setAttribute("id", title)
         like.setAttribute("isliked", "false");
-        like.setAttribute("tabindex","2")
+        aLike.setAttribute("tabindex","2")
         like.setAttribute("onclick", `increaseLike('${likes}','${title}')`);
         like.textContent = likes;
-        divLike.appendChild(like);
+        aLike.appendChild(like);
         const heart = document.createElement('span');
         heart.setAttribute('class','fa-solid fa-heart');
         heart.setAttribute("aria-label", "likes");
         heart.setAttribute("onclick", `increaseLike('${likes}','${title}')`);
-        divLike.appendChild(heart);
+        aLike.appendChild(heart);
 
         return article;
     }

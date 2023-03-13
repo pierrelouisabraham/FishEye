@@ -12,46 +12,46 @@
   </head>
   <body>
     <header>
-      <a href="index.html" role="Image link" tabindex="1">
+      <a href="index.html" tabindex="1">
       <img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page"/>
       </a>
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" role="buttons" onclick="displayModal()" tabindex="2">Contactez-moi</button>
+        <button class="contact_button" onclick="displayModal()" tabindex="2">Contactez-moi</button>
       </div>
     </main>
-    <div id="contact_modal" role="Dialog">
+    <div id="contact_modal" role="dialog">
 			<div class="modal">
 				<header>
-          <h2 role="Heading">Contactez-moi</h2>
-          <a href="#" onclick="closeModal()" tabindex="1"><img src="assets/icons/close.svg"  role="Button" alt="Close" />
+          <h2>Contactez-moi</h2>
+          <a href="#" onclick="closeModal()" tabindex="1"><img src="assets/icons/close.svg" alt="Close" />
           </a>
         </header>
 				<form >
           <div class="formData" data-error="Veuillez entrer au minimum deux caractères" data-error-visible="false">
-            <label for="first" role="first">Prénom</label>
+            <label for="first">Prénom</label>
             <input class="text-control" title="Prénom" type="text" id="first" name="first" data-error-visible="false" placeholder="Prénom" aria-label="Prénom" tabindex="1"/>
           </div>
           <div class="formData" data-error="Veuillez entrer au minimum deux caractères" data-error-visible="false">
-            <label for="last" role="last">Nom</label>
+            <label for="last">Nom</label>
             <input role="Text" title="Nom" class="text-control" type="text" id="last" name="last" data-error-visible="false" placeholder="Nom" aria-label="Nom" tabindex="1"/>
           </div>
           <div class="formData" data-error="Votre mail n'est pas conforme." data-error-visible="false">
-            <label for="email" role="email">E-mail</label>
+            <label for="email">E-mail</label>
             <input role="Text" title="email" class="text-control" type="text" id="email" name="email" data-error-visible="false" placeholder="email" aria-label="Email" tabindex="1"/>
             </div>
             <div>
               <div class="formData" data-error="Votre message n'est pas conforme." data-error-visible="false">
-            <label role="message">Votre message</label>
-						<input role="message" title="message" class="text-control" type="text" id="message" name="message" data-error-visible="false" placeholder="message" aria-label="Message" tabindex="1"/>
+            <label>Votre message</label>
+						<input title="message" class="text-control" type="text" id="message" name="message" data-error-visible="false" placeholder="message" aria-label="Message" tabindex="1"/>
           </div>
 					</div>
           <button class="contact_button" tabindex="1">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <div id="lightbox_modal" role="Dialog" aria-label="image closeup view">
+    <div id="lightbox_modal" aria-label="image closeup view">
       <div class="lightbox__container">
         <button class="prev_lightbox" onclick="previousImage()" role="link" aria-label="previous image" tabindex="1"></button>
         <div class="mediabox">
