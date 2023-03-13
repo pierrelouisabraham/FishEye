@@ -64,28 +64,33 @@ function mediaFactory(data){
         const videos = `assets/Sample Photos/${namePhoto}/${video}`;
         const article = document.createElement('article');
         article.setAttribute("class", "mosaique");
-        article.setAttribute("role", title);
-        article.setAttribute("tabindex","2")
+        article.setAttribute("role", 'Nouveau média');
+        
+        const aImg = document.createElement('a');
+        aImg.setAttribute('class', 'a_img');
+        aImg.setAttribute('href', "#");
+        aImg.setAttribute("tabindex","2");
+        article.appendChild(aImg);
         const name = document.createElement('p');
         if(isKeyExists(data,"video")) {
             const vid = document.createElement('video');
             vid.setAttribute("class", "img_video");
-            vid.setAttribute("onclick", `openModalLightbox('${videos}','${id}', '${title}')`);
-            article.appendChild(vid);
+            vid.setAttribute('alt', title);
+            aImg.setAttribute("onclick", `openModalLightbox('${videos}','${id}', '${title}')`);
+            aImg.appendChild(vid);
             const src = document.createElement("source");
             src.setAttribute("src", videos);
             src.setAttribute("type", "video/mp4");
             vid.appendChild(src);
             vid.style.cursor = "pointer";
-            vid.setAttribute("role", "Video link");
         }
         else {
             const img = document.createElement('img');
             img.setAttribute("src", images);
-            img.setAttribute("role", "Link");
             img.setAttribute("class", "photo");
-            img.setAttribute("onclick", `openModalLightbox('${images}','${id}','${title}')`);
-            article.appendChild(img);
+            aImg.setAttribute("onclick", `openModalLightbox('${images}','${id}','${title}')`);
+            img.setAttribute('alt', title);
+            aImg.appendChild(img);
             img.style.cursor = "pointer";
         }
         const divUnderPhoto = document.createElement('div');

@@ -133,6 +133,7 @@ document.onkeydown = function(evt) {
     }
     if (isEscape) {
         closeModalLightbox();
+        closeModal();
     }
 };
 
